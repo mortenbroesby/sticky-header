@@ -1,0 +1,109 @@
+html,
+body,
+button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+  background: #000000;
+  color: rgb(230, 230, 230);
+}
+
+.layout {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: 100px;
+}
+
+.header__toggle-button {
+  width: 100px;
+  height: 100%;
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  background: rgba(40, 40, 40, 0.8);
+  border: 0;
+  cursor: pointer;
+}
+
+.header__toggle-button__text {
+  padding: 6px;
+}
+
+.header__toggle-button__graphics {
+  display: block;
+  flex: 1 100%;
+  width: 100%;
+  height: 45px;
+  position: relative;
+  transform: rotate(0deg) scale(0.5);
+  transition: 200ms ease-in-out;
+  outline: 0;
+}
+
+.header__toggle-button__graphics span {
+  display: block;
+  position: absolute;
+  height: 6px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 2px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 100ms ease-in-out;
+}
+
+.header__toggle-button__graphics span:nth-child(1) {
+  top: 0;
+}
+
+.header__toggle-button__graphics span:nth-child(2) {
+  top: 18px;
+}
+
+.header__toggle-button__graphics span:nth-child(3) {
+  top: 36px;
+}
+
+.header__toggle-button:hover span:nth-child(1) {
+  top: 18px;
+  transform: rotate(135deg);
+}
+
+.header__toggle-button:hover span:nth-child(2) {
+  opacity: 0;
+}
+
+.header__toggle-button:hover span:nth-child(3) {
+  top: 18px;
+  transform: rotate(-135deg);
+}
+
+.header__menu {
+  flex: 1 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  background: #323232;
+}
+
+.header__list {
+  flex: 1 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.header__list-item {
+  padding: 20px;
+}
