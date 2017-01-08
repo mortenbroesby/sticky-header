@@ -1,24 +1,22 @@
-class StickyHeader {
+const header = document.getElementsByClassName('header')[0];
+const stickPoint = getDistance();
+let isSticky = false;
 
-  constructor() {
-    this.tabContainerHeight = 100;
-    $(window).scroll(() => { this.onScroll(); });
-    $(window).resize(() => { this.onResize(); });
-  }
-
-  onScroll() {
-    this.setStickyHeader();
-  }
-
-  setStickyHeader() {
-    let offset = $('.header').offset().top + $('.header').height() - this.tabContainerHeight;
-    if ($(window).scrollTop() > offset) {
-      $('.header').addClass('header--sticky');
-    } else {
-      $('.header').removeClass('header--sticky');
-    }
-  }
-
+function getDistance() {
+  var topDist = header.offsetTop;
+  return topDist;
 }
 
-new StickyHeader();
+window.onscroll = function(e) {
+  var distance = getDistance() - window.pageYOffset;
+  var offset = window.pageYOffset;
+  if ( (distance <= 0) && !isSticky) {
+    header.style.position = 'fixed';
+    header.style.top = '0px';
+    isSticky = true;
+  } else if (isSticky && (offset <= stickPoint)) {
+    header.style.position = 'absolute';
+    header.style.top = 'auto';
+    isSticky = false;
+  }
+}
